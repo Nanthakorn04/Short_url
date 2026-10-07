@@ -137,8 +137,8 @@ function App() {
         <div className="password-page w-100">
           <header className="app-header text-center mb-4">
             <p className="eyebrow mb-2">URL SHORTENER</p>
-            <h1 className="display-title">ลิงก์นี้ต้องใช้ Password</h1>
-            <p className="text-secondary mb-0">กรอกรหัสผ่านเพื่อไปยังปลายทาง</p>
+            <h1 className="display-title">Password Required</h1>
+            <p className="text-secondary mb-0">enter your password to access the link</p>
           </header>
           <PasswordForm
             password={accessPassword}

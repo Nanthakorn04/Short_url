@@ -39,7 +39,7 @@ async function createShortUrl(req, res) {
       });
     }
 
-    // nanoid v6 เป็น ES Module ส่วนโปรเจกต์นี้ใช้ CommonJS
+    // nanoid v6
     const { nanoid } = await import("nanoid");
     const shortCode = nanoid(6);
 
