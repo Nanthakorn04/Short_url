@@ -1,0 +1,181 @@
+.app-shell {
+  max-width: 960px;
+}
+
+.content-column,
+.password-page {
+  max-width: 680px;
+}
+
+.app-header {
+  max-width: 680px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.eyebrow {
+  color: #5966c2;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+}
+
+.display-title {
+  color: #172554;
+  font-size: clamp(2.25rem, 6vw, 3.5rem);
+  font-weight: 750;
+  letter-spacing: -0.055em;
+}
+
+.section-title {
+  color: #172554;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+
+.app-card,
+.result-card {
+  border-radius: 1.25rem;
+  box-shadow: 0 16px 45px rgb(31 41 55 / 8%);
+}
+
+.app-card .form-label {
+  color: #25304b;
+  font-weight: 650;
+}
+
+.app-card .form-control {
+  border-color: #dce3ef;
+  border-radius: 0.75rem;
+}
+
+.app-card .form-control:focus {
+  border-color: #818cf8;
+  box-shadow: 0 0 0 0.2rem rgb(99 102 241 / 16%);
+}
+
+.btn {
+  border-radius: 0.75rem;
+  font-weight: 650;
+}
+
+.btn-primary {
+  --bs-btn-bg: #4f46e5;
+  --bs-btn-border-color: #4f46e5;
+  --bs-btn-hover-bg: #4338ca;
+  --bs-btn-hover-border-color: #4338ca;
+  --bs-btn-active-bg: #3730a3;
+  --bs-btn-active-border-color: #3730a3;
+}
+
+.btn-outline-primary {
+  --bs-btn-color: #4f46e5;
+  --bs-btn-border-color: #c7d2fe;
+  --bs-btn-hover-bg: #eef2ff;
+  --bs-btn-hover-border-color: #a5b4fc;
+  --bs-btn-hover-color: #3730a3;
+}
+
+.result-card {
+  background: linear-gradient(145deg, #ffffff, #f7f8ff);
+}
+
+.success-mark {
+  display: inline-grid;
+  width: 2.75rem;
+  height: 2.75rem;
+  place-items: center;
+  border-radius: 50%;
+  background: #dcfce7;
+  color: #15803d;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.short-url-link {
+  max-width: 100%;
+  color: #4338ca;
+  font-size: clamp(1.1rem, 3vw, 1.4rem);
+  font-weight: 650;
+  overflow-wrap: anywhere;
+}
+
+.qr-image {
+  width: 200px;
+  padding: 0.65rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 1rem;
+  background: #fff;
+}
+
+.history-list {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.history-item {
+  padding: 1rem 1.1rem;
+  border: 1px solid #e8ecf4;
+  border-radius: 0.9rem;
+  background: #fff;
+}
+
+.history-qr {
+  width: 96px;
+  height: 96px;
+  padding: 0.35rem;
+  flex-shrink: 0;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.75rem;
+  background: #fff;
+}
+
+.history-code {
+  color: #3730a3;
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+.copy-control {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.copy-error {
+  color: #b42318;
+  font-size: 0.8rem;
+}
+
+.click-count {
+  color: #475569 !important;
+}
+
+.history-original {
+  color: #475569;
+}
+
+.empty-state {
+  padding: 1.5rem 1rem;
+  border: 1px dashed #cbd5e1;
+  border-radius: 0.9rem;
+  color: #64748b;
+  text-align: center;
+}
+
+.alert {
+  border: 0;
+  border-radius: 0.8rem;
+}
+
+@media (max-width: 575.98px) {
+  .app-shell {
+    padding-top: 2.5rem !important;
+    padding-bottom: 2.5rem !important;
+  }
+
+  .app-header {
+    margin-bottom: 2rem !important;
+  }
+}
