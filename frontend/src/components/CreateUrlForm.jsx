@@ -9,7 +9,7 @@ function CreateUrlForm({
   return (
     <section className="card app-card border-0">
       <div className="card-body p-4 p-md-5">
-        <h2 className="section-title h4 mb-4">สร้าง Short URL</h2>
+        <h2 className="section-title h4 mb-4">Create Short URL</h2>
         <form onSubmit={onSubmit}>
           <div className="mb-3">
             <label className="form-label" htmlFor="originalUrl">Original URL</label>
@@ -19,7 +19,7 @@ function CreateUrlForm({
               type="url"
               value={originalUrl}
               onChange={(event) => onOriginalUrlChange(event.target.value)}
-              placeholder="https://example.com"
+              placeholder="https://"
               required
             />
           </div>
@@ -32,7 +32,7 @@ function CreateUrlForm({
               type="password"
               value={password}
               onChange={(event) => onPasswordChange(event.target.value)}
-              placeholder="Enter a password to protect the Link"
+              placeholder="Choose a password"
             />
             <div className="form-text">Set a password to protect the link</div>
           </div>

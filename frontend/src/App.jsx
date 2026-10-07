@@ -138,7 +138,7 @@ function App() {
           <header className="app-header text-center mb-4">
             <p className="eyebrow mb-2">URL SHORTENER</p>
             <h1 className="display-title">Password Required</h1>
-            <p className="text-secondary mb-0">enter your password to access the link</p>
+            <p className="text-secondary mb-0">Enter the password to continue</p>
           </header>
           <PasswordForm
             password={accessPassword}
@@ -157,7 +157,7 @@ function App() {
       <header className="app-header text-center mb-5">
         <p className="eyebrow mb-2">LINKS MADE SIMPLE</p>
         <h1 className="display-title">URL Shortener</h1>
-        <p className="text-secondary mb-0">Create short links and manage your history</p>
+        <p className="text-secondary mb-0">Create short links</p>
       </header>
 
       <div className="content-column mx-auto">
