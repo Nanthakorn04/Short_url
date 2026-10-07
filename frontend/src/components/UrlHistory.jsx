@@ -43,7 +43,7 @@ function UrlHistory({ history, error, onRefresh, copiedButton, onCopied }) {
                     />
                     <span className="badge rounded-pill text-bg-light click-count ms-auto">{url.clickCount} clicks</span>
                   </div>
-                  <p className="history-original text-break mb-2">{url.originalUrl}</p>
+                  <p className="history-original small text-break mb-2">Original: {url.originalUrl}</p>
                   <p className="history-date small text-secondary mb-0">
                     created {new Date(url.createdAt).toLocaleString()}
                   </p>
