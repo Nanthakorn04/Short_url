@@ -11,6 +11,13 @@
   },
   "rewrites": [
     {
+      "source": "/password/:shortCode",
+      "destination": {
+        "service": "frontend",
+        "path": "/index.html"
+      }
+    },
+    {
       "source": "/api/(.*)",
       "destination": {
         "service": "backend"
