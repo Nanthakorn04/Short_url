@@ -93,3 +93,21 @@ npm run dev
 ## หมายเหตุ
 
 โปรเจกต์นี้ยังไม่มีระบบ Login ดังนั้น History เป็นรายการรวมของ URL ที่ถูกสร้างทั้งหมด
+
+## Deploy ด้วย Vercel
+
+โปรเจกต์นี้ใช้ Vercel **หนึ่ง Project** จาก repository root โดย `vercel.json` ที่ root แยก Backend และ Frontend เป็น Services และกำหนดเส้นทางให้แล้ว
+
+1. Push โค้ดขึ้น GitHub แล้วเลือก repository นี้ในหน้า Import ของ Vercel
+2. ตั้ง Root Directory เป็น `./` และ Application Preset เป็น `Services`
+3. กด Refresh หลัง `vercel.json` อยู่บน GitHub แล้วตรวจว่าพบ `backend` กับ `frontend` จากนั้นเลือก Import multi-service project
+4. ตั้ง Environment Variables ใน Project Settings:
+
+   - `MONGODB_URI`: MongoDB Atlas connection string
+   - `BASE_URL`: URL หลักของ Project Vercel เช่น `https://your-project.vercel.app`
+   - `FRONTEND_URL`: ใช้ URL เดียวกับ `BASE_URL`
+   - `VITE_API_URL`: ใช้ URL เดียวกับ `BASE_URL`
+
+5. Deploy หรือ Redeploy หลังเพิ่ม Environment Variables
+
+ใน Services routing, `/api/...` และ URL short code 6 ตัวอักษรจะไป Backend ส่วนเส้นทางอื่น เช่น `/` และ `/password/:shortCode` จะไป Frontend ทั้งหมดใช้ domain เดียวกัน ดังนั้นลิงก์สั้นที่สร้างใน production จะเป็น `https://your-project.vercel.app/:shortCode` ไม่ใช่ `localhost`.

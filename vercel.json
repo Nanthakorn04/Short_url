@@ -1,0 +1,37 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "services": {
+    "backend": {
+      "root": "backend/"
+    },
+    "frontend": {
+      "root": "frontend/"
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": {
+        "service": "backend"
+      }
+    },
+    {
+      "source": "^/[A-Za-z0-9_-]{6}/verify$",
+      "destination": {
+        "service": "backend"
+      }
+    },
+    {
+      "source": "^/[A-Za-z0-9_-]{6}$",
+      "destination": {
+        "service": "backend"
+      }
+    },
+    {
+      "source": "/(.*)",
+      "destination": {
+        "service": "frontend"
+      }
+    }
+  ]
+}
