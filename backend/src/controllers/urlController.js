@@ -7,12 +7,14 @@ async function createShortUrl(req, res) {
   try {
     const { originalUrl, password } = req.body || {};
 
+//check empty originalUrl
     if (typeof originalUrl !== "string" || originalUrl.trim() === "") {
       return res.status(400).json({
         message: "originalUrl is required",
       });
     }
 
+//check if the originalUrl is a valid URL
     let parsedUrl;
 
     try {
@@ -39,7 +41,7 @@ async function createShortUrl(req, res) {
       });
     }
 
-    // nanoid v6
+    // nanoid v6 
     const { nanoid } = await import("nanoid");
     const shortCode = nanoid(6);
 
@@ -54,11 +56,13 @@ async function createShortUrl(req, res) {
       shortCode,
       passwordHash,
     });
-
+    
+//generate QR code for the short URL
     const baseUrl = process.env.BASE_URL.replace(/\/$/, "");
     const shortUrl = `${baseUrl}/${url.shortCode}`;
     const qrCode = await QRCode.toDataURL(shortUrl);
 
+//return to frontend
     return res.status(201).json({
       originalUrl: url.originalUrl,
       shortCode: url.shortCode,
@@ -74,7 +78,6 @@ async function createShortUrl(req, res) {
     });
   }
 }
-
 async function accessShortUrl(req, res) {
   try {
     const { shortCode } = req.params;
