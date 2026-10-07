@@ -17,13 +17,19 @@
       }
     },
     {
-      "source": "^/[A-Za-z0-9_-]{6}/verify$",
+      "source": "/:shortCode/verify",
       "destination": {
         "service": "backend"
       }
     },
     {
-      "source": "^/[A-Za-z0-9_-]{6}$",
+      "source": "/favicon.svg",
+      "destination": {
+        "service": "frontend"
+      }
+    },
+    {
+      "source": "/:shortCode",
       "destination": {
         "service": "backend"
       }
