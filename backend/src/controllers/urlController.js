@@ -89,7 +89,9 @@ async function accessShortUrl(req, res) {
     if (url.passwordHash) {
       const frontendUrl = process.env.FRONTEND_URL.replace(/\/$/, "");
 
-      return res.redirect(`${frontendUrl}/password/${url.shortCode}`);
+      return res.redirect(
+        `${frontendUrl}/?passwordCode=${encodeURIComponent(url.shortCode)}`,
+      );
     }
 
     await ClickLog.create({ urlId: url._id });

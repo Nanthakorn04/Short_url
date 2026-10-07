@@ -34,8 +34,13 @@ function App() {
   const [isVerifying, setIsVerifying] = useState(false);
 
   const pathParts = window.location.pathname.split("/").filter(Boolean);
+  const passwordCodeFromQuery = new URLSearchParams(window.location.search).get(
+    "passwordCode",
+  );
   const shortCodeForPasswordPage =
-    pathParts[0] === "password" ? pathParts[1] : "";
+    (pathParts[0] === "password" ? pathParts[1] : "") ||
+    passwordCodeFromQuery ||
+    "";
 
   async function handleVerifyPassword(event) {
     event.preventDefault();
