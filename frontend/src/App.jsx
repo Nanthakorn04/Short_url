@@ -5,6 +5,21 @@ import PasswordForm from "./components/PasswordForm";
 import UrlHistory from "./components/UrlHistory";
 import UrlResult from "./components/UrlResult";
 
+async function readJsonResponse(response) {
+  const responseText = await response.text();
+
+  try {
+    return JSON.parse(responseText);
+  } catch {
+    const responsePreview = responseText.trim().slice(0, 160);
+    const message = responsePreview
+      ? `เซิร์ฟเวอร์ตอบกลับไม่ใช่ JSON (HTTP ${response.status}): ${responsePreview}`
+      : `เซิร์ฟเวอร์ตอบกลับไม่ใช่ JSON (HTTP ${response.status})`;
+
+    throw new Error(message);
+  }
+}
+
 function App() {
   const [originalUrl, setOriginalUrl] = useState("");
   const [password, setPassword] = useState("");
@@ -39,7 +54,7 @@ function App() {
         },
       );
 
-      const data = await response.json();
+      const data = await readJsonResponse(response);
 
       if (!response.ok) {
         throw new Error(data.message || "ตรวจสอบ Password ไม่สำเร็จ");
@@ -58,7 +73,7 @@ function App() {
       const response = await fetch(
         `${import.meta.env.VITE_API_URL}/api/urls/history`,
       );
-      const data = await response.json();
+      const data = await readJsonResponse(response);
 
       if (!response.ok) {
         throw new Error(data.message || "โหลด History ไม่สำเร็จ");
@@ -94,7 +109,7 @@ function App() {
         body: JSON.stringify({ originalUrl, password }),
       });
 
-      const data = await response.json();
+      const data = await readJsonResponse(response);
 
       if (!response.ok) {
         throw new Error(data.message || "สร้าง Short URL ไม่สำเร็จ");
